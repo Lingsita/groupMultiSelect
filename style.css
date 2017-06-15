@@ -1,0 +1,19 @@
+.group-select-hide{
+  display: none;
+}
+.select{
+  border: solid 1px grey;
+  cursor: pointer;
+  padding: 5px
+}
+.group-select{
+  background-color: #ffffff:
+}
+.options{
+  position: absolute;
+  cursor: pointer;
+}
+.group-selection{}
+.subitem{
+  padding-left: 15px;
+}
