@@ -10,21 +10,48 @@
             },
             initial:null
         }, config );
-        var html = "<div class='groupSelect'><div class='select-arrow-down'></div><div class='select'><div class='placeholder'> "+self.settings.placeholder+"</div></div><div class='options group-select-hide'>";
-        $.each(self.settings.options, function(i){
-            var id_parent = this.label.toLowerCase().replace(/ /g,'-')
-            html += "<div><input type='radio' name='parent' class='group-select-option' id='id_parent_"+i+"' value='"+this.label+"'><label for='id_parent_"+i+"'>"+this.label+"</label>";
-            if(this.subItems.length>0){
-                html+="<div class='subitem-group "+id_parent+"' style='display: none'>";
-                $.each(this.subItems, function(index){
-                    html += "<div class='subitem'><input type='checkbox' id='subitem_"+id_parent+"_"+index+"' class='group-select-option-subitem' data-parent='"+id_parent+"' value='"+this+"'><label for='subitem_"+id_parent+"_"+index+"'>"+this+"</label></div>";
+        var html = "<div class='groupSelect'><div class='select-arrow-down'></div><div class='select'><div class='placeholder'> " + self.settings.placeholder + "</div></div><div class='options group-select-hide'>";
+
+        this.generateHTML = function (options) {
+            console.log(options)
+            var html_options = '';
+            $.each(options, function (i) {
+                console.log(this)
+                var id_parent = this.label.toLowerCase().replace(/ /g, '-')
+                html_options += "<div><input type='radio' name='parent' class='group-select-option' id='id_parent_" + i + "' value='" + this.label + "'><label for='id_parent_" + i + "'>" + this.label + "</label>";
+                if (this.subItems.length > 0) {
+                    html_options += "<div class='subitem-group " + id_parent + "' style='display: none'>";
+                    $.each(this.subItems, function (index) {
+                        html_options += "<div class='subitem'><input type='checkbox' id='subitem_" + id_parent + "_" + index + "' class='group-select-option-subitem' data-parent='" + id_parent + "' value='" + this + "'><label for='subitem_" + id_parent + "_" + index + "'>" + this + "</label></div>";
+                    })
+                    html_options += "</div>";
+                }
+                html_options += "</div>";
+            });
+            return html_options;
+        }
+
+
+        if(self.settings.options) {
+            html += this.generateHTML(self.settings.options);
+        }else{
+            var groups = []
+            $(self).find("select").find("optgroup").each(function () {
+                var group_options = [];
+                $(this).find('option').each(function () {
+                    group_options.push($(this).val());
                 })
-                html+="</div>";
-            }
-            html+="</div>";
-        });
+
+                groups.push({
+                    label: $(this).attr('label'),
+                    subItems:group_options
+                });
+            });
+            html += this.generateHTML(groups);
+        }
+
         html+= "</div></div></div>"
-        $( this ).html(html);
+        $(this).html(html);
 
         return this.each(function () {
 
@@ -93,6 +120,5 @@
                 })
             }
         })
-
     };
 })(jQuery);
