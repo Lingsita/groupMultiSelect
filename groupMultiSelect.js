@@ -9,13 +9,14 @@
             options: {},
             placeholder: "Group Select",
             onChange: function (parent, children) {
-            }
+            },
+            initial:null
         }, config );
 
         var html = "<div class='groupSelect'><div class='select-arrow-down'></div><div class='select'><div class='placeholder'> "+settings.placeholder+"</div></div><div class='options group-select-hide'>";
         $.each(settings.options, function(i){
             var id_parent = this.label.toLowerCase().replace(/ /g,'-')
-            html += "<div><input type='radio' name='group-select' class='group-select-option' id='id_parent_"+i+"' value='"+this.label+"'><label for='id_parent_"+i+"'>"+this.label+"</label>";
+            html += "<div><input type='radio' name='parent' class='group-select-option' id='id_parent_"+i+"' value='"+this.label+"'><label for='id_parent_"+i+"'>"+this.label+"</label>";
             if(this.subItems.length>0){
                 html+="<div class='subitem-group "+id_parent+"' style='display: none'>";
                 $.each(this.subItems, function(index){
@@ -27,6 +28,7 @@
         });
         html+= "</div></div></div>"
         $( this ).html(html);
+
         $(document).click(function(event) {
             if(!$(event.target).closest('.groupSelect').length) {
                 $(".options").slideUp('fast');
@@ -38,7 +40,7 @@
                 }
             }
         });
-        $(".group-select-option").on('click', function(){
+        $("input[name='parent']").on('change', function(){
             var valor = $(this).val();
             var parent = valor.toLowerCase().replace(/ /g,'-');
             $('.'+parent).css('display', 'block');
@@ -64,7 +66,7 @@
                 }
             });
             var selected = "";
-            visible_children = $.each(children, function () {
+            $.each(children, function () {
                 selected += "<div class='subitem-label'>"+this+"</div>";
             });
 
@@ -72,7 +74,23 @@
 
             settings.onChange($('.select').find('.group-selection').find('.parent').text(), children);
         });
+        if(settings.initial){
+            $.each(settings.options, function () {
+                if (this.label == settings.initial.parent){
+                    $("input[value='"+settings.initial.parent+"']").prop("checked", true);
+                    $("input[value='"+settings.initial.parent+"']").trigger('change');
+                    var subItems = this.subItems;
+                    $.each(settings.initial.children, function (index, value) {
+                        var child = $("input[value='"+value+"']").prop("checked", true);
+                        if(subItems.indexOf(value)){
+                            $("input[value='"+value+"']").prop("checked", true);
+                            $(".group-select-option-subitem").trigger('change');
+                        }
 
+                    })
+                }
+            })
+        }
         return this
 
     };

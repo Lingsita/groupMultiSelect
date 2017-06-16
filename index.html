@@ -38,9 +38,17 @@
                     }
                 ],
                 placeholder:"Reasons",
+                initial: {
+                    parent: 'Category 2',
+                    children:[
+                        "SubItem 1",
+                        "SubItem 3"
+                    ]
+                },
                 onChange: function (parent, children) {
                     //Do stuff with the user selection
                 }
+
             });
         });
 
