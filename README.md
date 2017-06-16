@@ -46,3 +46,4 @@ var groupselect =$(".groupMultiSelect").groupMultiSelect({
       }
     });
 ```
+![alt text](https://github.com/Lingsita/groupMultiSelect/blob/master/example.png)
