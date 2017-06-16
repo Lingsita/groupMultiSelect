@@ -46,7 +46,7 @@ var groupselect =$(".groupMultiSelect").groupMultiSelect({
       }
     });
 ```
-or with <optgroup> Tag you we just have to put the HTML inside our div like this:
+or with ```HTML<optgroup>``` Tag you we just have to put the HTML inside our div like this:
 ```HTML
 <div class="groupMultiSelect1">
         <select>
