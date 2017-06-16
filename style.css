@@ -2,18 +2,49 @@
   display: none;
 }
 .select{
-  border: solid 1px grey;
+  border: solid 1px rgb(202, 202, 202);
+  border-radius: 1px;
   cursor: pointer;
-  padding: 5px
+  padding: 4px 5px;
+  font-size: 14px;
+  width: 100%;
 }
 .group-select{
-  background-color: #ffffff:
 }
 .options{
   position: absolute;
   cursor: pointer;
+  background-color: #ffffff;
+  border: 1px solid #d2d2d2;
+  padding: 8px;
+  overflow-y: auto;
+  max-height: 100px;
+  width: 100%;
 }
-.group-selection{}
+.group-selection{
+  border-radius: 3px;
+  background: #d6d6d6;
+  padding: 2px 5px;
+  display: inline-block;
+}
 .subitem{
-  padding-left: 15px;
+  padding-left: 20px;
 }
+
+.parent{
+  display: inline-block;
+}
+.children{
+  display: inline-block;
+}
+.placeholder{
+  color: #8b8b8b;
+}
+.subitem-label{
+  display: inline-block;
+  background: #ececec;
+  padding: 2px 5px;
+  margin: auto 2px;
+  border-radius: 3px;
+}
+.groupMultiSelect
