@@ -63,12 +63,13 @@
                     children.push($(this).val());
                 }
             });
-            var selected = children.length>0 ? "&nbsp;:" : "";
+            var selected = "";
             visible_children = $.each(children, function () {
                 selected += "<div class='subitem-label'>"+this+"</div>";
             });
 
             $('.select').find('.group-selection').find('.children').html(selected);
+
             settings.onChange($('.select').find('.group-selection').find('.parent').text(), children);
         });
 

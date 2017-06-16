@@ -18,7 +18,7 @@
   border: 1px solid #d2d2d2;
   padding: 8px;
   overflow-y: auto;
-  max-height: 100px;
+  max-height: 200px;
   width: 100%;
 }
 .group-selection{
@@ -33,6 +33,7 @@
 
 .parent{
   display: inline-block;
+  padding-right: 3px;
 }
 .children{
   display: inline-block;
@@ -46,4 +47,5 @@
   padding: 2px 5px;
   margin: auto 2px;
   border-radius: 3px;
+  margin: 1px;
 }
