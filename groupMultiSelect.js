@@ -12,7 +12,7 @@
             }
         }, config );
 
-        var html = "<div class='groupSelect'><div class='select'><div class='placeholder'> "+settings.placeholder+"</div></div><div class='options group-select-hide'>";
+        var html = "<div class='groupSelect'><div class='select-arrow-down'></div><div class='select'><div class='placeholder'> "+settings.placeholder+"</div></div><div class='options group-select-hide'>";
         $.each(settings.options, function(i){
             var id_parent = this.label.toLowerCase().replace(/ /g,'-')
             html += "<div><input type='radio' name='group-select' class='group-select-option' id='id_parent_"+i+"' value='"+this.label+"'><label for='id_parent_"+i+"'>"+this.label+"</label>";
