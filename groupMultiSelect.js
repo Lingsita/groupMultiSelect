@@ -29,16 +29,12 @@
         $( this ).html(html);
         $(document).click(function(event) {
             if(!$(event.target).closest('.groupSelect').length) {
-                $(".options").addClass('group-select-hide');
+                $(".options").slideUp('fast');
             }else{
                 if($(event.target).closest('.select').length) {
-                    if ($(".options").hasClass('group-select-hide')) {
-                        $(".options").removeClass('group-select-hide');
-                    } else {
-                        $(".options").addClass('group-select-hide');
-                    }
+                    $(".options").slideToggle('fast');
                 }else{
-                    $(".options").removeClass('group-select-hide');
+                    $(".options").slideDown('fast');
                 }
             }
         });
@@ -67,9 +63,9 @@
                     children.push($(this).val());
                 }
             });
-            var selected = "&nbsp;:"
+            var selected = children.length>0 ? "&nbsp;:" : "";
             visible_children = $.each(children, function () {
-                selected += "<div class='subitem-label'>"+this+"hhh</div>";
+                selected += "<div class='subitem-label'>"+this+"</div>";
             });
 
             $('.select').find('.group-selection').find('.children').html(selected);
