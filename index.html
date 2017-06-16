@@ -1,56 +1,51 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8">
+    <title>HTML5 Template</title>
+    <link rel="stylesheet" href="groupMultiSelect.css" type="text/css">
+  </head>
+  <body>
+    <h1>Group Multi Select </h1>
+    <p style="margin-bottom: 100px; color: #a8a8a8;">By Lingsita @2017</p>
 
-<head>
-  <meta charset="utf-8">
-  <title>HTML5 Template</title>
-  <link rel="stylesheet" href="groupMultiSelect.css" type="text/css">
-</head>
-
-<body>
-
-  <h1>HTML5 Template</h1>
-
-  <div id="container">
-    <p id="first_p">cc</p>
-    <div class="groupMultiSelect1">
+    <div id="container">
+      <p id="first_p">Your Label: </p>
+      <div class="groupMultiSelect1">
+      </div>
     </div>
-    <div>
-      jhkjh
-    </div>
-  </div>
+
+    <!-- scripts before end of body -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="groupMultiSelect.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        $(function() {
+            var groupselect =$(".groupMultiSelect1").groupMultiSelect({
+                options:[
+                    {
+                        label:'Category 1',
+                        subItems:[]
+                    },
+                    {
+                        label:'Category 2',
+                        subItems:[
+                            'SubItem 1',
+                            'SubItem 2',
+                            'SubItem 3'
+                        ]
+                    }
+                ],
+                placeholder:"Reasons",
+                onChange: function (parent, children) {
+                    //Do stuff with the user selection
+                }
+            });
+        });
 
 
-  <!-- scripts before end of body -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="groupMultiSelect.js" type="text/javascript"></script>
+    </script>
 
-  <script type="text/javascript">
-
-  $(function() {
-    var groupselect =$(".groupMultiSelect1").groupMultiSelect({
-      options:[
-        {
-          label:'Competitor Request',
-          subItems:[]
-        },
-        {
-          label:'Nokia Request',
-          subItems:[
-            'Extremally short time to work the case ',
-            'Lack of resources',
-            'Delay vs offer plan committed'
-          ]
-        }
-      ],
-      placeholder:"Reasons",
-      onChange: function (parent, children) {
-      }
-    });
-  });
-
-
-  </script>
-
-</body>
+  </body>
 </html>
