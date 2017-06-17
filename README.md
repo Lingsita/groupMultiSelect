@@ -28,8 +28,8 @@ var groupselect =$(".groupMultiSelect").groupMultiSelect({
           label:'Category 2',
           subItems:[
             'SubItem 1',
-            'SubItem 1',
-            'SubItem 1'
+            'SubItem 2',
+            'SubItem 3'
           ]
         }
       ],
@@ -61,6 +61,6 @@ or with ```<optgroup>``` tag we just have to put the HTML inside our div:
 </div>
 ```
 
-<h3>Note:</h3> For this second approach you must not set the options in the plugin constructor.
+<h3>Note:</h3> For this second approach you must not set the "options" key in the plugin constructor.
 
 ![alt text](https://github.com/Lingsita/groupMultiSelect/blob/master/example.png)
