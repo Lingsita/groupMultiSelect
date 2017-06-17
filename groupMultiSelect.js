@@ -32,9 +32,7 @@
             return html_options;
         }
 
-        if(self.settings.options) {
-            html += this.generateHTML(self.settings.options);
-        }else{
+        if(!self.settings.options) {
             var groups = []
             $(self).find("select").find("optgroup").each(function () {
                 var group_options = [];
@@ -47,9 +45,9 @@
                     subItems:group_options
                 });
             });
-            html += this.generateHTML(groups);
+            self.settings.options = groups;
         }
-
+        html += this.generateHTML(self.settings.options);
         html+= "</div></div></div>"
         $(this).html(html);
 
