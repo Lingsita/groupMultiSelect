@@ -10,16 +10,14 @@
             },
             initial:null
         }, config );
-
+        self.unique_id = (new Date()).getTime();
         var html = "<div class='groupSelect'><div class='select-arrow-down'></div><div class='select'><div class='placeholder'> " + self.settings.placeholder + "</div></div><div class='options group-select-hide'>";
 
         this.generateHTML = function (options) {
-            console.log(options)
             var html_options = '';
             $.each(options, function (i) {
-                console.log(this)
                 var id_parent = this.label.toLowerCase().replace(/ /g, '-')
-                html_options += "<div><input type='radio' name='parent' class='group-select-option' id='id_parent_" + i + "' value='" + this.label + "'><label for='id_parent_" + i + "'>" + this.label + "</label>";
+                html_options += "<div><input type='radio' name='parent_"+self.unique_id+"' class='group-select-option' id='id_parent_" + i + "' value='" + this.label + "'><label for='id_parent_" + i + "'>" + this.label + "</label>";
                 if (this.subItems.length > 0) {
                     html_options += "<div class='subitem-group " + id_parent + "' style='display: none'>";
                     $.each(this.subItems, function (index) {
@@ -64,7 +62,7 @@
                     }
                 }
             });
-            $(self).find("input[name='parent']").on('change', function(){
+            $(self).find("input[name^='parent_']").on('change', function(){
                 var valor = $(this).val();
                 var parent = valor.toLowerCase().replace(/ /g,'-');
                 $(self).find('.'+parent).css('display', 'block');
@@ -105,8 +103,6 @@
                         $(self).find("input[value='"+self.settings.initial.parent+"']").trigger('change');
                         var subItems = this.subItems;
                         $.each(self.settings.initial.children, function (index, value) {
-                            console.log(subItems)
-                            var child = $(self).find("input[value='"+value+"']").prop("checked", true);
                             if(subItems.indexOf(value)!=-1){
                                 $(self).find("input[value='"+value+"']").prop("checked", true);
                                 $(self).find(".group-select-option-subitem").trigger('change');
