@@ -17,7 +17,7 @@
             var html_options = '';
             $.each(options, function (i) {
                 var id_parent = this.label.toLowerCase().replace(/ /g, '-')
-                html_options += "<div><input type='radio' name='parent_"+self.unique_id+"' class='group-select-option' id='id_parent_" + i + "' value='" + this.label + "'><label for='id_parent_" + i + "'>" + this.label + "</label>";
+                html_options += "<div><input type='radio' name='parent_"+self.unique_id+"' class='group-select-option' id='id_parent_" + self.unique_id + "_"+i+"' value='" + this.label + "'><label for='id_parent_" + self.unique_id + "_"+i+"'>" + this.label + "</label>";
                 if (this.subItems.length > 0) {
                     html_options += "<div class='subitem-group " + id_parent + "' style='display: none'>";
                     $.each(this.subItems, function (index) {
