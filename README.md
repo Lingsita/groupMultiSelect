@@ -1,7 +1,7 @@
 # GroupMultiSelect
 Jquery Plugin to make a multi select with grouped options
 
-Useful when we need to know which category and which items the user has been selected
+Useful when we need to know which category and which items selected by the user
 
 ## Requirements
 
