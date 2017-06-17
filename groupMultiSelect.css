@@ -25,7 +25,7 @@
 }
 .group-selection{
   border-radius: 3px;
-  background: #d6d6d6;
+  background: #e8e8e8;
   padding: 2px 5px;
   display: inline-block;
   margin-right: 15px;
@@ -46,7 +46,7 @@
 }
 .subitem-label{
   display: inline-block;
-  background: #ececec;
+  background: #f6f6f6;
   padding: 2px 5px;
   margin: auto 2px;
   border-radius: 3px;
