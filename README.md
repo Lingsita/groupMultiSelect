@@ -46,4 +46,17 @@ var groupselect =$(".groupMultiSelect").groupMultiSelect({
       }
     });
 ```
+or with ```HTML<optgroup>``` Tag you we just have to put the HTML inside our div like this:
+```HTML
+<div class="groupMultiSelect1">
+        <select>
+          <optgroup label="Swedish Cars">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+          </optgroup>alue="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </optgroup>
+        </select>
+      </div>
+```
 ![alt text](https://github.com/Lingsita/groupMultiSelect/blob/master/example.png)
