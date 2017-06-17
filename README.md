@@ -1,7 +1,7 @@
 # GroupMultiSelect
 Jquery Plugin to make a multi select with grouped options
 
-Usefull when we need to know which category and which items the user has been selected
+Useful when we need to know which category and which items the user has been selected
 
 ## Requirements
 
@@ -53,7 +53,8 @@ or with ```HTML<optgroup>``` Tag we just have to put the HTML inside our div lik
           <optgroup label="Swedish Cars">
             <option value="volvo">Volvo</option>
             <option value="saab">Saab</option>
-          </optgroup>alue="mercedes">Mercedes</option>
+          </optgroup>
+            <option value="mercedes">Mercedes</option>
             <option value="audi">Audi</option>
           </optgroup>
         </select>
