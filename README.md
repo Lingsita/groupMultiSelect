@@ -1,7 +1,7 @@
 # GroupMultiSelect
 Jquery Plugin to make a multi select with grouped options
 
-Useful when we need to know which category and which items the user has been selected
+Useful when we need to know which category and which items selected by the user
 
 ## Requirements
 
@@ -46,18 +46,21 @@ var groupselect =$(".groupMultiSelect").groupMultiSelect({
       }
     });
 ```
-or with ```HTML<optgroup>``` Tag we just have to put the HTML inside our div like this:
+or with ```<optgroup>``` tag we just have to put the HTML inside our div:
 ```HTML
 <div class="groupMultiSelect1">
-        <select>
-          <optgroup label="Swedish Cars">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-          </optgroup>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
-          </optgroup>
-        </select>
-      </div>
+  <select>
+    <optgroup label="Swedish Cars">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+    </optgroup>
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </optgroup>
+  </select>
+</div>
 ```
+
+<h3>Note:</h3> For this second approach you must not set the options in the plugin constructor.
+
 ![alt text](https://github.com/Lingsita/groupMultiSelect/blob/master/example.png)
