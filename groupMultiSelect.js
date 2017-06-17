@@ -10,6 +10,7 @@
             },
             initial:null
         }, config );
+
         var html = "<div class='groupSelect'><div class='select-arrow-down'></div><div class='select'><div class='placeholder'> " + self.settings.placeholder + "</div></div><div class='options group-select-hide'>";
 
         this.generateHTML = function (options) {
@@ -30,7 +31,6 @@
             });
             return html_options;
         }
-
 
         if(self.settings.options) {
             html += this.generateHTML(self.settings.options);
@@ -54,7 +54,6 @@
         $(this).html(html);
 
         return this.each(function () {
-
 
             $(document).click(function(event) {
                 if(!$(self).find(event.target).closest('.groupSelect').length) {
